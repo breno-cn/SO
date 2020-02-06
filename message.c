@@ -23,11 +23,11 @@ typedef struct Message {
 
 typedef struct Msg_queue {
     int IF, FF;                                                     // Incício e fim da fila
-    message buffer[BUFF_SZ];					                    // Vetor que implementa a fila de mensagens
+    message buffer[BUFF_SZ];					    // Vetor que implementa a fila de mensagens
     message async_buff;                                             // Buffer para receber mensagens asíncronas
     pid_t used_id[MAX_ID];                                          // ID's usados pelos processos, 0 se estiver vazio, pid caso contrário
     sem_t sem[MAX_ID];                                              // Lista de semáforos para cada processo, usado mas mensagens síncronas
-    sem_t critical_sync;					                        // Semáforo usado para controlar acesso à regiões  síncronas
+    sem_t critical_sync;					    // Semáforo usado para controlar acesso à regiões  síncronas
     sem_t critical_async;                                           // Semáforo das regiões asíncronas
 } msg_queue;
 
